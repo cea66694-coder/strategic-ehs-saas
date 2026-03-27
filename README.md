@@ -2,14 +2,14 @@
 
 ## Preview
 
-### Login
-![Login screen](https://github.com/user-attachments/assets/563cc66c-7821-4c37-9a40-68f170df029d)
+### Login — one-click demo access
+![Login screen](https://github.com/user-attachments/assets/9fba7233-b391-45cb-bf14-f5a99281b880)
 
 ### Dashboard (Overview)
-![Dashboard overview](https://github.com/user-attachments/assets/546f9932-6ff6-4434-859b-7b353d932423)
+![Dashboard overview](https://github.com/user-attachments/assets/8bd237c5-3b94-40ea-80ae-ed9e1f4e1662)
 
 ### Incidents Tab
-![Incidents tab](https://github.com/user-attachments/assets/573492c1-a6d9-46d0-8830-a3b1eefc07c1)
+![Incidents tab](https://github.com/user-attachments/assets/df2dba67-7367-4a0f-8121-1b3141367cf5)
 
 ---
 
@@ -20,7 +20,9 @@ npm install
 npm run dev
 ```
 
-## Demo credentials
+## Demo
+
+Click **Try as Admin** or **Try as Client** on the login screen for instant one-click access — no credentials required.
 
 | Role | Email | Password |
 |------|-------|----------|

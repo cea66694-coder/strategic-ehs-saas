@@ -11,4 +11,8 @@ button.alt{background:#fff;border:1px solid var(--line);color:var(--text)} .tool
 table{width:100%;border-collapse:collapse} .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:14px} th,td{padding:12px 10px;text-align:left;border-bottom:1px solid #eef7f3;font-size:14px;vertical-align:top}
 th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:#fbfffd}.pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eef2f7;color:#475569}
 .metric .value{font-size:34px;font-weight:800;margin-top:8px}.login{min-height:100vh;display:grid;place-items:center;padding:20px}.loginbox{max-width:440px;width:100%}.two{grid-template-columns:1fr 1fr}
+.demo-banner{background:linear-gradient(90deg,var(--green2),var(--blue2));border:1px solid var(--line2);border-radius:10px;padding:8px 14px;font-size:13px;font-weight:600;color:#0c4a6e;margin:12px 0 16px}
+.demo-btns{display:flex;gap:10px;margin-bottom:4px}.demo-btn{flex:1}
+.divider{display:flex;align-items:center;gap:10px;margin:18px 0 14px;color:var(--muted);font-size:12px}.divider::before,.divider::after{content:'';flex:1;border-top:1px solid var(--line)}
+.demo-pill{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;background:linear-gradient(90deg,var(--green2),var(--blue2));color:#0c4a6e;border:1px solid var(--line2)}
 @media(max-width:900px){.grid.hero,.metrics,.two{grid-template-columns:1fr}.app{padding:14px}}
