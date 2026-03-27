@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - copilot/integrate-github-pages-deployment
 
 permissions:
   contents: read
