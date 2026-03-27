@@ -8,8 +8,86 @@ const demoUsers = [
 ];
 
 const seed = [
-  { id:'angio', name:'AngioDynamics', incidents:[{date:'2026-03-03',type:'Near Miss',status:'Open',summary:'Pallet jack struck rack upright.'}], training:[{employee:'Jamie Carter',course:'HazCom',status:'Current'}], actions:[{title:'Install eyewash tags',owner:'Maintenance',status:'Open'}], inspections:[{date:'2026-03-05',area:'Production',status:'Open'}], documents:[{name:'OSHA 300 Log 2026',status:'Current'}], reports:[{name:'Monthly EHS Summary',status:'Generated'}] },
-  { id:'north', name:'North River Plant', incidents:[{date:'2026-03-01',type:'Property Damage',status:'Open',summary:'Guard panel removed and not reinstalled.'}], training:[{employee:'Tara Green',course:'Machine Guarding',status:'Overdue'}], actions:[{title:'Replace missing guards',owner:'Engineering',status:'Open'}], inspections:[{date:'2026-03-02',area:'Fabrication',status:'Open'}], documents:[{name:'LOTO Program',status:'Current'}], reports:[{name:'Incident Trend Report',status:'Generated'}] }
+  {
+    id:'angio', name:'AngioDynamics',
+    incidents:[
+      {date:'2026-03-03',type:'Near Miss',status:'Open',summary:'Pallet jack struck rack upright.'},
+      {date:'2026-02-18',type:'First Aid',status:'Closed',summary:'Laceration on hand from box cutter.'},
+      {date:'2026-02-05',type:'Property Damage',status:'Closed',summary:'Forklift clipped warehouse door frame.'},
+      {date:'2026-01-22',type:'Near Miss',status:'Open',summary:'Chemical spill near mixing station — contained.'},
+    ],
+    training:[
+      {employee:'Jamie Carter',course:'HazCom',status:'Current'},
+      {employee:'Marcus Reed',course:'Forklift Certification',status:'Current'},
+      {employee:'Priya Singh',course:'Fire Safety',status:'Overdue'},
+      {employee:'Tom Wells',course:'First Aid/CPR',status:'Due Soon'},
+      {employee:'Lisa Nguyen',course:'Machine Guarding',status:'Current'},
+    ],
+    actions:[
+      {title:'Install eyewash tags',owner:'Maintenance',status:'Open'},
+      {title:'Update HazCom binder',owner:'EHS Manager',status:'Closed'},
+      {title:'Repair dock leveler',owner:'Facilities',status:'Open'},
+      {title:'Conduct Q1 fire drill',owner:'Safety Officer',status:'Open'},
+    ],
+    inspections:[
+      {date:'2026-03-05',area:'Production',status:'Open'},
+      {date:'2026-02-20',area:'Warehouse',status:'Closed'},
+      {date:'2026-02-10',area:'Loading Dock',status:'Closed'},
+      {date:'2026-01-15',area:'Chemical Storage',status:'Closed'},
+    ],
+    documents:[
+      {name:'OSHA 300 Log 2026',status:'Current'},
+      {name:'Emergency Action Plan',status:'Current'},
+      {name:'Chemical Inventory',status:'Needs Review'},
+      {name:'Forklift SOP',status:'Current'},
+      {name:'Contractor Safety Requirements',status:'Current'},
+    ],
+    reports:[
+      {name:'Monthly EHS Summary — March 2026',status:'Generated'},
+      {name:'Incident Trend Report Q1 2026',status:'Generated'},
+      {name:'Training Compliance Report',status:'Generated'},
+    ]
+  },
+  {
+    id:'north', name:'North River Plant',
+    incidents:[
+      {date:'2026-03-01',type:'Property Damage',status:'Open',summary:'Guard panel removed and not reinstalled.'},
+      {date:'2026-02-25',type:'Near Miss',status:'Closed',summary:'Worker slipped on wet floor near press.'},
+      {date:'2026-02-10',type:'First Aid',status:'Closed',summary:'Strain from improper lifting — heat applied.'},
+      {date:'2026-01-30',type:'Near Miss',status:'Open',summary:'Overhead crane swung unexpectedly during load.'},
+    ],
+    training:[
+      {employee:'Tara Green',course:'Machine Guarding',status:'Overdue'},
+      {employee:'Derek Hall',course:'Confined Space Entry',status:'Current'},
+      {employee:'Ann Morris',course:'HazCom',status:'Current'},
+      {employee:'Carlos Diaz',course:'Overhead Crane',status:'Due Soon'},
+      {employee:'Fiona Walsh',course:'First Aid/CPR',status:'Current'},
+    ],
+    actions:[
+      {title:'Replace missing guards on press #3',owner:'Engineering',status:'Open'},
+      {title:'Install wet-floor signage',owner:'Facilities',status:'Closed'},
+      {title:'Update confined space permit procedure',owner:'EHS Manager',status:'Open'},
+      {title:'Crane operator re-qualification',owner:'HR',status:'Open'},
+    ],
+    inspections:[
+      {date:'2026-03-02',area:'Fabrication',status:'Open'},
+      {date:'2026-02-15',area:'Paint Line',status:'Closed'},
+      {date:'2026-01-28',area:'Maintenance Shop',status:'Closed'},
+      {date:'2026-01-10',area:'Crane Bay',status:'Closed'},
+    ],
+    documents:[
+      {name:'LOTO Program',status:'Current'},
+      {name:'Confined Space Entry Permit',status:'Needs Review'},
+      {name:'Crane Inspection Records',status:'Current'},
+      {name:'OSHA 300 Log 2026',status:'Current'},
+      {name:'Spill Response Plan',status:'Current'},
+    ],
+    reports:[
+      {name:'Incident Trend Report Q1 2026',status:'Generated'},
+      {name:'Open Actions Report',status:'Generated'},
+      {name:'Monthly EHS Summary — March 2026',status:'Generated'},
+    ]
+  }
 ];
 
 const tabs = ['overview','incidents','training','actions','inspections','documents','reports','backend'];
@@ -38,11 +116,18 @@ export default function App(){
   const company = useMemo(()=>visibleCompanies.find(c=>c.id===companyId) || visibleCompanies[0], [visibleCompanies, companyId]);
 
   if(!user){
+    const signIn = (u) => { setUser(u); setCompanyId(u.companyId || 'angio'); setError(''); };
     return (
       <div className="login">
         <div className="loginbox card">
           <div className="brand">Strategic <span>EHS</span></div>
-          <div className="small" style={{margin:'8px 0 18px'}}>Full SaaS starter package</div>
+          <div className="small" style={{margin:'8px 0 4px'}}>Full SaaS starter package</div>
+          <div className="demo-banner">🎯 Demo mode — sample data, no backend required</div>
+          <div className="demo-btns">
+            <button className="demo-btn" onClick={()=>signIn(demoUsers[0])}>Try as Admin</button>
+            <button className="demo-btn alt" onClick={()=>signIn(demoUsers[1])}>Try as Client</button>
+          </div>
+          <div className="divider"><span>or sign in</span></div>
           <div className="small">Email</div>
           <input value={email} onChange={e=>setEmail(e.target.value)} />
           <div className="small" style={{marginTop:12}}>Password</div>
@@ -52,7 +137,7 @@ export default function App(){
             <button onClick={()=>{
               const found = demoUsers.find(u=>u.email===email && u.password===password);
               if(!found){ setError('Invalid email or password.'); return; }
-              setUser(found); setCompanyId(found.companyId || 'angio'); setError('');
+              signIn(found);
             }}>Sign In</button>
           </div>
         </div>
@@ -74,7 +159,8 @@ export default function App(){
           <div className="brand">Strategic <span>EHS</span></div>
           <div className="small">{user.name} · {user.role}</div>
         </div>
-        <div style={{display:'flex',gap:10,flexWrap:'wrap'}}>
+        <div style={{display:'flex',gap:10,flexWrap:'wrap',alignItems:'center'}}>
+          <span className="demo-pill">Demo</span>
           <button className="alt" onClick={()=>setUser(null)}>Sign Out</button>
         </div>
       </div>
