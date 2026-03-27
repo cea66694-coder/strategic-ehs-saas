@@ -46,7 +46,13 @@ Click **Try as Admin** or **Try as Client** on the login screen for instant one-
 
 ## Deploy to GitHub Pages
 
-Push to `main` — the included GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys automatically to:
+**Option A — Merge the PR** (recommended): Merge this PR into `main`. The workflow triggers automatically and deploys within ~2 minutes. No approval needed.
+
+**Option B — Approve the pending deployment**: Go to [Actions](https://github.com/cea66694-coder/strategic-ehs-saas/actions) → click the waiting "Deploy to GitHub Pages" run → click **Review deployments** → approve.
+
+**Option C — Manual trigger**: Go to [Actions → Deploy to GitHub Pages](https://github.com/cea66694-coder/strategic-ehs-saas/actions/workflows/deploy.yml) → **Run workflow** → select the `copilot/integrate-github-pages-deployment` branch → Run.
+
+The site will be live at:
 
 ```
 https://cea66694-coder.github.io/strategic-ehs-saas/

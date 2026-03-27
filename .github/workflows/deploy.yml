@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - copilot/integrate-github-pages-deployment
+  workflow_dispatch:
 
 permissions:
   contents: read
