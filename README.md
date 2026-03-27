@@ -1,5 +1,13 @@
 # Strategic EHS Full SaaS Starter
 
+## 🚀 Live Demo
+
+**[https://cea66694-coder.github.io/strategic-ehs-saas/](https://cea66694-coder.github.io/strategic-ehs-saas/)**
+
+> Click **Try as Admin** on the login screen for instant access — no sign-up required.
+
+---
+
 ## Preview
 
 ### Login — one-click demo access
